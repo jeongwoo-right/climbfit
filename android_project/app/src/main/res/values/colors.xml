@@ -25,6 +25,8 @@
     <!-- 배경 -->
     <color name="backgroundLight">#FFFFFF</color>
     <color name="backgroundGray">#F5F5F5</color>
+    <color name="gray">#E0E0E0</color>
+    <color name="blue">#2196F3</color> <!-- 이번에 추가할 blue -->
 
 
 </resources>
