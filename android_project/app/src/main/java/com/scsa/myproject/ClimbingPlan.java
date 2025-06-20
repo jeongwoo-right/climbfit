@@ -9,6 +9,7 @@ public class ClimbingPlan implements Serializable {
     private String partner;
     private String goal;
     private boolean isCompleted;
+    private String record;
 
     public ClimbingPlan(String place, String date, String partner, String goal) {
         this.place = place;
@@ -16,7 +17,9 @@ public class ClimbingPlan implements Serializable {
         this.partner = partner;
         this.goal = goal;
         this.isCompleted = false;
+        this.record = "";  // 초기 빈 문자열
     }
+
 
     public String getPlace() { return place; }
     public String getDate() { return date; }
@@ -24,4 +27,7 @@ public class ClimbingPlan implements Serializable {
     public String getGoal() { return goal; }
     public boolean isCompleted() { return isCompleted; }
     public void setCompleted(boolean completed) { isCompleted = completed; }
+
+    public String getRecord() { return record; }
+    public void setRecord(String record) { this.record = record; }
 }
