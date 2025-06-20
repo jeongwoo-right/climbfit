@@ -7,16 +7,19 @@
     android:padding="24dp"
     android:textAlignment="center">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textSize="40dp"
+    <!-- 로고 이미지 -->
+    <ImageView
+        android:id="@+id/titleImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/climbfit_logo_with_child"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="24dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnTodo"
+        android:contentDescription="ClimbFit Logo"
+        android:layout_marginBottom="0dp"
+        />
 
     <Button
         android:id="@+id/btnTodo"
@@ -25,10 +28,11 @@
         android:background="@drawable/custom_button"
         android:text="📝 CLIMB LOG"
         android:textColor="#040404"
+        app:layout_constraintTop_toBottomOf="@+id/titleImage"
         app:layout_constraintBottom_toTopOf="@+id/btnNews"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <Button
         android:id="@+id/btnNews"
@@ -37,10 +41,11 @@
         android:background="@drawable/custom_button"
         android:text="📰 Sports News"
         android:textColor="#040404"
+        app:layout_constraintTop_toBottomOf="@+id/btnTodo"
         app:layout_constraintBottom_toTopOf="@+id/btnAlarm"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTodo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <Button
         android:id="@+id/btnAlarm"
@@ -49,10 +54,11 @@
         android:background="@drawable/custom_button"
         android:text="⏰ TIMER"
         android:textColor="#040404"
+        app:layout_constraintTop_toBottomOf="@+id/btnNews"
         app:layout_constraintBottom_toTopOf="@+id/btnMouseCatch"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNews" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <Button
         android:id="@+id/btnMouseCatch"
@@ -61,10 +67,10 @@
         android:background="@drawable/custom_button"
         android:text="🧗‍♂️ Game"
         android:textColor="#040404"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAlarm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAlarm" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
