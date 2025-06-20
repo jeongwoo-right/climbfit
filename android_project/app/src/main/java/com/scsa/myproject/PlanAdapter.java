@@ -51,8 +51,8 @@ public class PlanAdapter extends ArrayAdapter<ClimbingPlan> {
         ClimbingPlan plan = planList.get(position);
 
         holder.textInfo.setText(
-                plan.getDate() + " | " + plan.getPlace() + " - " + plan.getGoal()
-                        + (plan.getRecord().isEmpty() ? "" : "\nRecord: " + plan.getRecord())
+                plan.getDate() + " | " + plan.getPlace() + "\n"
+                        + "Goal: " + plan.getGoal() + (plan.getRecord().isEmpty() ? "" : " | Record: " + plan.getRecord())
         );
 
         if (isPendingList) {
