@@ -1,6 +1,7 @@
 package com.scsa.myproject;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,17 +31,23 @@ import java.util.Date;
 import java.util.List;
 
 public class ParserMainActivity extends AppCompatActivity {
+
     private static final String TAG = "ParserMainActivity_SCSA";
+
     ListView listView;
     MyAdapter adapter;
     List<Check> list = new ArrayList<>();
 
     EditText keywordEdit;
     Button searchButton;
+    Button btnSports, btnHealth;
+    TextView sectionTitle;
+
     String keyword = "";
+    String currentRssUrl = "https://www.hani.co.kr/rss/sports/";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parser_main);
 
@@ -51,13 +57,39 @@ public class ParserMainActivity extends AppCompatActivity {
 
         keywordEdit = findViewById(R.id.keywordEdit);
         searchButton = findViewById(R.id.searchButton);
+        btnSports = findViewById(R.id.btnSports);
+        btnHealth = findViewById(R.id.btnHealth);
+        sectionTitle = findViewById(R.id.sectionTitle);
 
-        new MyAsyncTask().execute("https://www.hani.co.kr/rss/sports/");
+        // 초기 상태
+        updateSegmentedUI(true);
+        sectionTitle.setText("Sports News");
+        new MyAsyncTask().execute(currentRssUrl);
+
+        btnSports.setOnClickListener(v -> {
+            currentRssUrl = "https://www.hani.co.kr/rss/sports/";
+            keyword = "";
+            keywordEdit.setText("");
+            list.clear();
+            updateSegmentedUI(true);
+            sectionTitle.setText("Sports News");
+            new MyAsyncTask().execute(currentRssUrl);
+        });
+
+        btnHealth.setOnClickListener(v -> {
+            currentRssUrl = "https://rss.donga.com/health.xml";
+            keyword = "";
+            keywordEdit.setText("");
+            list.clear();
+            updateSegmentedUI(false);
+            sectionTitle.setText("Health News");
+            new MyAsyncTask().execute(currentRssUrl);
+        });
 
         searchButton.setOnClickListener(v -> {
             keyword = keywordEdit.getText().toString().trim();
             list.clear();
-            new MyAsyncTask().execute("https://www.hani.co.kr/rss/sports");
+            new MyAsyncTask().execute(currentRssUrl);
         });
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
@@ -66,18 +98,29 @@ public class ParserMainActivity extends AppCompatActivity {
             intent.putExtra("url", url);
             startActivity(intent);
         });
+    }
 
+    private void updateSegmentedUI(boolean isSportsSelected) {
+        if (isSportsSelected) {
+            btnSports.setBackgroundResource(R.drawable.segmented_selected);
+            btnSports.setTextColor(Color.WHITE);
+            btnHealth.setBackgroundResource(R.drawable.segmented_unselected);
+            btnHealth.setTextColor(Color.BLACK);
+        } else {
+            btnHealth.setBackgroundResource(R.drawable.segmented_selected);
+            btnHealth.setTextColor(Color.WHITE);
+            btnSports.setBackgroundResource(R.drawable.segmented_unselected);
+            btnSports.setTextColor(Color.BLACK);
+        }
     }
 
     class MyAsyncTask extends AsyncTask<String, String, List<Check>> {
-
         @Override
         protected List<Check> doInBackground(String... arg) {
             try {
                 Log.d(TAG, "connection start....");
                 InputStream input = new URL(arg[0]).openConnection().getInputStream();
                 Log.d(TAG, "connection ok....");
-
                 parsing(new BufferedReader(new InputStreamReader(input)));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -98,7 +141,7 @@ public class ParserMainActivity extends AppCompatActivity {
             Check item = null;
             long id = 0;
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String name = null;
+                String name;
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
                         name = parser.getName();
@@ -113,7 +156,7 @@ public class ParserMainActivity extends AppCompatActivity {
                             } else if (name.equalsIgnoreCase("description")) {
                                 item.description = parser.nextText();
                             } else if (name.equalsIgnoreCase("pubDate")) {
-                                item.pubDate = new Date(parser.nextText());
+                                item.pubDate = new Date();  // 간단히 처리
                             }
                         }
                         break;
@@ -141,7 +184,6 @@ public class ParserMainActivity extends AppCompatActivity {
             if (convertView == null) {
                 RowBinding binding = RowBinding.inflate(LayoutInflater.from(ParserMainActivity.this), viewGroup, false);
                 convertView = binding.getRoot();
-
                 holder = new ViewHolder();
                 holder.title = binding.title;
                 convertView.setTag(holder);
@@ -151,7 +193,6 @@ public class ParserMainActivity extends AppCompatActivity {
 
             Check item = list.get(position);
             holder.title.setText(item.title);
-
             return convertView;
         }
 
@@ -160,18 +201,12 @@ public class ParserMainActivity extends AppCompatActivity {
         }
 
         @Override
-        public int getCount() {
-            return list.size();
-        }
+        public int getCount() { return list.size(); }
 
         @Override
-        public Object getItem(int i) {
-            return list.get(i);
-        }
+        public Object getItem(int i) { return list.get(i); }
 
         @Override
-        public long getItemId(int i) {
-            return list.get(i).id;
-        }
+        public long getItemId(int i) { return list.get(i).id; }
     }
 }
