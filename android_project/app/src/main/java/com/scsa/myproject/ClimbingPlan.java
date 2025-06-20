@@ -20,6 +20,21 @@ public class ClimbingPlan implements Serializable {
         this.record = "";  // 초기 빈 문자열
     }
 
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setPartner(String partner) {
+        this.partner = partner;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
 
     public String getPlace() { return place; }
     public String getDate() { return date; }

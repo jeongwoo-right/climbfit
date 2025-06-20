@@ -40,6 +40,17 @@
             app:layout_constraintEnd_toStartOf="@+id/btnDelete"
             android:layout_marginEnd="8dp"/>
 
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_edit"
+            android:background="@drawable/button_round_orange"
+            android:contentDescription="Edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnComplete"
+            android:layout_marginEnd="8dp"/>
+
         <!-- Delete (X 아이콘 버튼) -->
         <ImageButton
             android:id="@+id/btnDelete"
