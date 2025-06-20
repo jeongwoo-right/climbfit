@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF8C42">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Climbing Journal"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabTextColor="@android:color/white"
+        app:tabIndicatorColor="@android:color/white" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

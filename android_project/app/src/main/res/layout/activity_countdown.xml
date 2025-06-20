@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundLight"
+    tools:context=".CountdownActivity">
+
+    <!-- 카운트다운 숫자 -->
+    <TextView
+        android:id="@+id/tvCountdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- 버튼 그룹 -->
+    <LinearLayout
+        android:id="@+id/buttonGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="48dp">
+
+        <Button
+            android:id="@+id/btnBackTimer"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Back to Timer"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorSecondary"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnBackHome"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Back to Home"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/holdRed"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

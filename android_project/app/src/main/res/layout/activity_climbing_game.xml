@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 / 5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#DD000000"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0.000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#88000000"
+        android:textColor="#FFFFFF"
+        android:padding="8dp" />
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/background" />
+</LinearLayout>
