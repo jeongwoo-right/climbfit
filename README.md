@@ -1,5 +1,5 @@
 # CLIMBFIT (Android 통합 프로젝트)
-![ClimbFit Logo](./android_project/app/src/main/res/drawable/climbfit_logo_with_slogan.png)
+![ClimbFit Logo](./android_project/app/src/main/res/drawable/climbfit_logo_with_slogan.PNG)
 
 
 ## 📄 프로젝트 개요
@@ -16,13 +16,13 @@
  사용자가 자신의 클라이밍 운동 계획(루틴)을 앱에 추가하고 관리할 수 있습니다. 계획을 추가하면 *PLANNED* 목록에 표시되고, 완료 시 *COMPLETED* 목록으로 이동합니다.
 각 운동 계획마다 **목표를 설정**하고 **완료 여부를 기록**할 수 있습니다. 사용자는 완료한 계획의 세부 정보를 열람하고, 목표 달성 결과를 요약 확인할 수 있습니다.
 
-![ClimbFit Logo](./android_project/app/src/main/res/drawable/func1_2.png)
+![ClimbFit Logo](./android_project/app/src/main/res/drawable/func1_2.PNG)
 
 
 ### 2. 운동 관련 News 탭
 운동 뉴스나 운동 팁 등 유용한 정보를 제공하는 건강 정보 탭이 포함되어 있습니다.
 
-![ClimbFit Logo](./android_project/app/src/main/res/drawable/func2_2.png)
+![ClimbFit Logo](./android_project/app/src/main/res/drawable/func2_2.PNG)
 
 
 ### 3. 알람 및 타이머 기능
@@ -30,13 +30,13 @@
   - 등반 후 휴식 시간 설정을 통해 규칙적인 운동 시간 유지
   - 등반 제한 시간 설정을 통한 민첩성/순발력 향상에 활용
 
-![ClimbFit Logo](./android_project/app/src/main/res/drawable/func3.png)
+![ClimbFit Logo](./android_project/app/src/main/res/drawable/func3.PNG)
 
 
 ### 4. 클라이밍 미니 게임
 재미 요소로 클라이밍 게임을 포함하고 있습니다. 사용자는 게임을 통해 클라이밍 동작을 게임화하여 재미있게 연습하거나 휴식 시간에 즐길 수 있습니다. TOP 홀드에 합손하는 것을 NFC 태깅으로 활용하여, NFC 태그의 위치를 옮겨가며 게임을 즐길 수 있습니다.
 
-![ClimbFit Logo](./android_project/app/src/main/res/drawable/func4_2.png)
+![ClimbFit Logo](./android_project/app/src/main/res/drawable/func4_2.PNG)
 
 
 
@@ -121,8 +121,8 @@ climbfit/
 * 2025년 6월 SCSA Android 통합 프로젝트 (4일 집중 개발)
 
 ## 개선 방향
-![단기적 개선방향](./android_project/app/src/main/res/drawable/add1.png)
-![장기적 개선방향](./android_project/app/src/main/res/drawable/add2.png)
+![단기적 개선방향](./android_project/app/src/main/res/drawable/add1.PNG)
+![장기적 개선방향](./android_project/app/src/main/res/drawable/add2.PNG)
 
 
 ---
